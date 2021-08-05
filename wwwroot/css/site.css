@@ -1,0 +1,35 @@
+﻿input[type='submit'], button, [aria-label] {
+    cursor: pointer;
+}
+
+#editForm {
+    display: none;
+}
+
+table {
+    font-family: Arial, sans-serif;
+    border: 1px solid;
+    border-collapse: collapse;
+    counter-reset: rowNumber -1;
+}
+
+th {
+    background-color: #0066CC;
+    color: white;
+    padding: 4px;
+}
+
+td {
+    border: 1px solid;
+    padding: 5px;
+}
+
+table tr {
+    counter-increment: rowNumber;
+}
+
+table tr td:first-child::after {
+    content : counter(rowNumber);
+    min-width: 1em;
+    margin-left: 0.2em;
+}

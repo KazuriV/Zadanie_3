@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>To-do CRUD</title>
+    <link rel="stylesheet" href="css/site.css" />
+    <link rel="stylesheet" href="css/TopBot.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <h3> <a href="index.html">Strona z Klientami</a></h3>
+</div>
+        </nav>
+    </header>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Stopka strony - <a asp-area="" asp-controller="Home" asp-action="Privacy">Polityka prywatności</a>
+        </div>
+    </footer>
+    <h1>Książki</h1>
+    <h3>Podaj</h3>
+    <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
+        <label for="add-title">tytuł:</label>
+        <input type="text" id="add-title" name="add-title" placeholder="Tytuł"><br><br>
+        <label for="add-author">autor:</label>
+        <input type="text" id="add-author" name="add-author" placeholder="Autor">
+        <input type="submit" value="Wyślij">
+    </form>
+    <div id="editForm">
+        <h3>Edytuj</h3>
+        <form action="javascript:void(0);" onsubmit="updateItem()">
+            <input type="hidden" id="edit-id">
+            <input type="checkbox" id="edit-isAvailable">
+            <label for="edit-title">tytuł:</label>
+            <input type="text" id="edit-title" name="edit-title" placeholder="Tytuł"><br><br>
+            <label for="edit-author">autor:</label>
+            <input type="text" id="edit-author" name="edit-author" placeholder="Autor">
+            <input type="submit" value="Zapisz">
+            <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+        </form>
+    </div>
+    <p id="counter"></p>
+    <table>
+        <tr>
+            <th>Is Available?</th>
+            <th>Tytuł</th>
+            <th>Autor</th>
+            <th>Edytuj</th>
+            <th>Usuń</th>
+        </tr>
+        <tbody id="todos2"></tbody>
+    </table>
+    <script src="js/book.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        getBooks();
+    </script>
+</body>
+</html>
